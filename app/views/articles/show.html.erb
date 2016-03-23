@@ -1,0 +1,21 @@
+<%= link_to 'Home', articles_path %>
+
+<p>
+  <strong>Title:</strong>
+  <%= @article.title %>
+</p>
+ 
+<p>
+  <strong>Body:</strong>
+  <%= @article.body %>
+</p>
+
+<p>
+  <strong>Author:</strong> <%= @article.author.try(:first_name) %> <%= @article.author.try(:last_name) %>
+</p>
+
+<ul>
+  <% @article.tags.each do |tag| %>
+    <li><%= tag.name %></li>
+  <% end %>
+</ul>

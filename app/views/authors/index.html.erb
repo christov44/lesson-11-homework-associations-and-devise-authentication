@@ -1,0 +1,23 @@
+<%= link_to "Create New Author", new_author_path %>
+
+<h1>Your Authors</h1>
+ 
+<table>
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <td></td>
+    <td></td>
+  </tr>
+ 
+  <% @authors.each do |author| %>
+    <tr>
+      <td> <%= link_to(author.first_name, author_path(author)) %> </td>
+      <td> <%= link_to(author.last_name, author_path(author)) %> </td>
+      <td> >> <%= link_to "update", edit_author_path(author) %> >> </td>
+      <td> <%= link_to "delete", author_path(author), method: :delete, data: {confirm: "Are you sure you want to delete?"} %></td>
+    </tr>
+  <% end %>
+</table>
+
+
